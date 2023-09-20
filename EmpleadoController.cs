@@ -32,11 +32,11 @@ namespace ConsoleAppDAOMVCSingletonSolid
         {
             try
             {
-                Empleado parqueadero = empleadoService.ObtenerEmpleadoPorId(id);
+                Empleado peluqueria = empleadoService.ObtenerEmpleadoPorId(id);
 
-                if (parqueadero != null)
+                if (peluqueria != null)
                 {
-                    vista.MostrarEmpleado(parqueadero);
+                    vista.MostrarEmpleado(peluqueria);
                 }
                 else
                 {
@@ -49,15 +49,15 @@ namespace ConsoleAppDAOMVCSingletonSolid
             }
         }
 
-        public void RegistrarEmpleado(Empleado parqueadero)
+        public void RegistrarEmpleado(Empleado peluqueria)
         {
             try
             {
-                if (empleadoService.RegistrarEmpleado(parqueadero))
+                if (empleadoService.RegistrarEmpleado(peluqueria))
                 {
                     Console.WriteLine("---------------------");
-                    Console.WriteLine("--> Registro exitoso: " + parqueadero.id);
-                    vista.MostrarEmpleado(parqueadero);
+                    Console.WriteLine("--> Registro exitoso: " + peluqueria.id);
+                    vista.MostrarEmpleado(peluqueria);
                 }
                 else
                 {

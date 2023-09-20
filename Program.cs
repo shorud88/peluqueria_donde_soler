@@ -18,8 +18,7 @@ namespace ConsoleAppDAOMVCSingletonSolid
             while (true)
             {
                 Console.WriteLine("");
-                Console.WriteLine("         ////////////////////");
-                Console.WriteLine("         CITY PARKING PENAGOS\n");
+                Console.WriteLine(" peluqueria donde soler ");
                 Console.WriteLine("\nPor favor digite el numero de la opción deseada:\n");
                 Console.WriteLine("[1] Lista clientes\n[2] Ingresar Nuevo\n[3] Actualizar\n[4] Eliminar\n[5] Total ingresos \n[6] Ayuda: \n[7] Salir del programa ");
 
@@ -43,7 +42,7 @@ namespace ConsoleAppDAOMVCSingletonSolid
                                 Console.WriteLine("-------------------");
                                 controller.VerEmpleado(id);
                                 Console.WriteLine("------------Datos originales------------");
-                                Console.WriteLine("parqueadero");
+                                Console.WriteLine("peluqueria");
                                 Console.WriteLine("Ingrese los nuevos datos");
 
                                 string nuevoNombre = InputNombre();
@@ -224,7 +223,7 @@ namespace ConsoleAppDAOMVCSingletonSolid
 
             do
             {
-                Console.WriteLine("Ingrese la fecha de inicio de la inscripcion: (Formato: dd/mm/yyyy): ");
+                Console.WriteLine("Ingrese la fecha a atender: (Formato: dd/mm/yyyy): ");
                 string input = Console.ReadLine();
 
                 if (DateTime.TryParseExact(input, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fecha))

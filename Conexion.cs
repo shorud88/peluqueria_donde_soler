@@ -7,7 +7,7 @@ namespace ConsoleAppDAOMVCSingletonSolid
 {
     public sealed class Conexion : IDisposable
     {
-        private static readonly string ConnectionString = "server=localhost;user=root;password=;database=parqueaderodb;";
+        private static readonly string ConnectionString = "server=localhost;user=root;password=;database=peluqueriasoler;";
         private MySqlConnection _connection;
 
         private static Conexion _instance = new Conexion();

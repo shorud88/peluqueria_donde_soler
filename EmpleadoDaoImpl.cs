@@ -7,12 +7,13 @@ using System.Data;
 
 public class EmpleadoDaoImpl : IEmpleadoDao
 {
-    private const string INSERT_QUERY = "INSERT INTO parqueadero ( nombre, apellido, cedula, duracion_meses, fecha, precio_mensual) VALUES ( @nombre, @apellido, @cedula,  @duracion_meses, @fecha, @precio_mensual);";
-    private const string SELECT_ALL_QUERY = "SELECT id, nombre, apellido, cedula, duracion_meses, fecha, precio_mensual FROM parqueadero ORDER BY id;";
-    private const string UPDATE_QUERY = "UPDATE parqueadero SET nombre=@nombre, apellido=@apellido, cedula=@cedula, duracion_meses=@duracion_meses, fecha=@fecha, precio_mensual=@precio_mensual WHERE id=@id;";
-    private const string DELETE_QUERY = "DELETE FROM parqueadero WHERE id=@id;";
-    private const string SELECT_BY_ID_QUERY = "SELECT * FROM parqueadero WHERE id=@id;";
-    private const string SELECT_ALL_EMPLEADOS_QUERY = "SELECT * FROM parqueadero;";
+    private const string INSERT_QUERY = "INSERT INTO peluqueria ( nombre, apellido, cedula, duracion_meses, fecha, precio_mensual) VALUES ( @nombre, @apellido, @cedula,  @duracion_meses, @fecha, @precio_mensual);";
+    private const string SELECT_ALL_QUERY = "SELECT id, nombre, apellido, cedula, duracion_meses, fecha, precio_mensual FROM peluqueria ORDER BY id;";
+    private const string UPDATE_QUERY = "UPDATE peluqueria SET nombre=@nombre, apellido=@apellido, cedula=@cedula, duracion_meses=@duracion_meses, fecha=@fecha, precio_mensual=@precio_mensual WHERE id=@id;";
+    private const string DELETE_QUERY = "DELETE FROM peluqueria WHERE id=@id;";
+    private const string SELECT_BY_ID_QUERY = "SELECT * FROM peluqueria WHERE id=@id;";
+    private const string SELECT_ALL_EMPLEADOS_QUERY = "SELECT * FROM peluqueria;";
+   
     private readonly MySqlConnection _connection;
     public EmpleadoDaoImpl(MySqlConnection connection)
     {
@@ -87,7 +88,7 @@ public class EmpleadoDaoImpl : IEmpleadoDao
         }
     }
 
-    public bool ActualizarEmpleado(Empleado parqueadero )
+    public bool ActualizarEmpleado(Empleado peluqueria )
     {
         bool actualizado = false;
 
@@ -97,13 +98,13 @@ public class EmpleadoDaoImpl : IEmpleadoDao
 
             using (MySqlCommand cmd = new MySqlCommand(UPDATE_QUERY, _connection))
             {
-                cmd.Parameters.AddWithValue("@nombre", parqueadero.nombre);
-                cmd.Parameters.AddWithValue("@apellido", parqueadero.apellido);
-                cmd.Parameters.AddWithValue("@cedula", parqueadero.cedula);
-                cmd.Parameters.AddWithValue("@duracion_meses", parqueadero.duracion_meses);
-                cmd.Parameters.AddWithValue("@fecha", parqueadero.fecha);
-                cmd.Parameters.AddWithValue("@precio_mensual", parqueadero.precio_mensual);
-                cmd.Parameters.AddWithValue("@id", parqueadero.id);
+                cmd.Parameters.AddWithValue("@nombre", peluqueria.nombre);
+                cmd.Parameters.AddWithValue("@apellido", peluqueria.apellido);
+                cmd.Parameters.AddWithValue("@cedula", peluqueria.cedula);
+                cmd.Parameters.AddWithValue("@duracion_meses", peluqueria.duracion_meses);
+                cmd.Parameters.AddWithValue("@fecha", peluqueria.fecha);
+                cmd.Parameters.AddWithValue("@precio_mensual", peluqueria.precio_mensual);
+                cmd.Parameters.AddWithValue("@id", peluqueria.id);
                 cmd.ExecuteNonQuery();
                 actualizado = true;
             }
@@ -151,7 +152,7 @@ public class EmpleadoDaoImpl : IEmpleadoDao
 
     public Empleado ObtenerEmpleadoPorId(int id)
     {
-        Empleado parqueadero = null;
+        Empleado peluqueria = null;
 
         try
         {
@@ -165,7 +166,7 @@ public class EmpleadoDaoImpl : IEmpleadoDao
                 {
                     if (reader.Read())
                     {
-                        parqueadero = CrearEmpleadoDesdeDataReader(reader);
+                        peluqueria = CrearEmpleadoDesdeDataReader(reader);
                     }
                 }
             }
@@ -179,7 +180,7 @@ public class EmpleadoDaoImpl : IEmpleadoDao
             _connection.Close();
         }
 
-        return parqueadero;
+        return peluqueria;
     }
 
 
@@ -197,8 +198,8 @@ public class EmpleadoDaoImpl : IEmpleadoDao
                 {
                     while (reader.Read())
                     {
-                        Empleado parqueadero = CrearEmpleadoDesdeDataReader(reader);
-                        listaEmpleados.Add(parqueadero);
+                        Empleado peluqueria = CrearEmpleadoDesdeDataReader(reader);
+                        listaEmpleados.Add(peluqueria);
                     }
                 }
 
@@ -236,7 +237,7 @@ public class EmpleadoDaoImpl : IEmpleadoDao
         return new Empleado (id, nombre, apellido, cedula, duracion_meses, fecha, precio_mensual);
     }
 
-    public bool RegistrarEmpleado(Empleado parqueadero)
+    public bool RegistrarEmpleado(Empleado peluqueria)
     {
         using (MySqlCommand cmd = new MySqlCommand(INSERT_QUERY, _connection))
         {
@@ -244,16 +245,16 @@ public class EmpleadoDaoImpl : IEmpleadoDao
             {
                 ProveState();
 
-                cmd.Parameters.AddWithValue("@id", parqueadero.id);
-                cmd.Parameters.AddWithValue("@nombre", parqueadero.nombre);
-                cmd.Parameters.AddWithValue("@apellido", parqueadero.apellido);
-                cmd.Parameters.AddWithValue("@cedula", parqueadero.cedula);
-                cmd.Parameters.AddWithValue("@duracion_meses", parqueadero.duracion_meses);
-                cmd.Parameters.AddWithValue("@fecha", parqueadero.fecha);
-                cmd.Parameters.AddWithValue("@precio_mensual", parqueadero.precio_mensual);
+                cmd.Parameters.AddWithValue("@id", peluqueria.id);
+                cmd.Parameters.AddWithValue("@nombre", peluqueria.nombre);
+                cmd.Parameters.AddWithValue("@apellido", peluqueria.apellido);
+                cmd.Parameters.AddWithValue("@cedula", peluqueria.cedula);
+                cmd.Parameters.AddWithValue("@duracion_meses", peluqueria.duracion_meses);
+                cmd.Parameters.AddWithValue("@fecha", peluqueria.fecha);
+                cmd.Parameters.AddWithValue("@precio_mensual", peluqueria.precio_mensual);
                 cmd.ExecuteNonQuery();
 
-                parqueadero.id = (int)cmd.LastInsertedId;
+                peluqueria.id = (int)cmd.LastInsertedId;
 
 
                 return true;

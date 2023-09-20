@@ -13,11 +13,11 @@ namespace ConsoleAppDAOMVCSingletonSolid
             this.dao = dao ?? throw new ArgumentNullException(nameof(dao));
         }
 
-        public bool RegistrarEmpleado(Empleado parqueadero)
+        public bool RegistrarEmpleado(Empleado peluqueria)
         {
             try
             {
-                return dao.RegistrarEmpleado(parqueadero);
+                return dao.RegistrarEmpleado(peluqueria);
             }
             catch (DAOException e)
             {
@@ -26,11 +26,11 @@ namespace ConsoleAppDAOMVCSingletonSolid
             }
         }
 
-        public bool ActualizarEmpleado(Empleado parqueadero)
+        public bool ActualizarEmpleado(Empleado peluqueria)
         {
             try
             {
-                return dao.ActualizarEmpleado(parqueadero);
+                return dao.ActualizarEmpleado(peluqueria);
             }
             catch (DAOException e)
             {

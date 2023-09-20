@@ -6,9 +6,9 @@ namespace ConsoleAppDAOMVCSingletonSolid
 {
     public class EmpleadoView
     {
-        public void MostrarEmpleado(Empleado parqueadero)
+        public void MostrarEmpleado(Empleado peluqueria)
         {
-            Console.WriteLine("Datos del Cliente:\n" + parqueadero.ToString());
+            Console.WriteLine("Datos del Cliente:\n" + peluqueria.ToString());
         }
 
         public void MostrarEmpleados(List<Empleado> empleados)
@@ -20,10 +20,10 @@ namespace ConsoleAppDAOMVCSingletonSolid
             }
 
             Console.WriteLine("Lista de Empleados:");
-            foreach (Empleado parqueadero in empleados)
+            foreach (Empleado peluqueria in empleados)
             {
                 Console.WriteLine("------------");
-                Console.WriteLine(parqueadero.ToString());
+                Console.WriteLine(peluqueria.ToString());
             }
         }
     }
