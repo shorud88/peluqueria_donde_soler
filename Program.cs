@@ -88,12 +88,12 @@ namespace ConsoleAppDAOMVCSingletonSolid
         {
             Console.WriteLine("****MENU DE AYUDA*****\n");
             Console.WriteLine("Opciones disponibles:\n");
-            Console.WriteLine("[1] Listar:          Muestra la lista de clientes activos.");
-            Console.WriteLine("[2] Ingresar nuevo:  Registra un nuevo cliente.");
-            Console.WriteLine("[3] Actualizar:      Actualiza la informacion de un cliente existente.");
-            Console.WriteLine("[4] Eliminar:        Elimina un cliente.");
-            Console.WriteLine("[5] Total Ingresos:  Muestra el total de ingresos mensual y neto");
-            Console.WriteLine("[6] Ayuda:           Muestra a detalle cada opcion.");
+            Console.WriteLine("[1] Listar:          Muestra la lista de clientes peluqueria.");
+            Console.WriteLine("[2] Ingresar nuevo:  Registra un nuevo cliente peluqueria.");
+            Console.WriteLine("[3] Actualizar:      Actualizacion de cliente en peluqueria existente.");
+            Console.WriteLine("[4] Eliminar:        Elimina un cliente de peluqueria.");
+            Console.WriteLine("[5] Total Ingresos:  Muestra el total de ingresos mensual de peluqueria");
+            Console.WriteLine("[6] Ayuda:           Muestra a detalle cada opcion de la peluqueria.");
             Console.WriteLine("[7] Salir:           Sale del programa.\n");
         }
 
@@ -295,8 +295,8 @@ namespace ConsoleAppDAOMVCSingletonSolid
                 double ingresosMensuales = dao.CalcularIngresosMensuales();
                 double ingresosTotales = dao.CalcularIngresosTotales();
 
-                Console.WriteLine("Ingreso total del mes: = $" + ingresosMensuales);
-                Console.WriteLine("Ingreso del mes actual, mas los meses pagos por adelantado");
+                Console.WriteLine("Ingreso total de la peluqueria mensual: = $" + ingresosMensuales);
+                Console.WriteLine("Ingreso de precio de corte por clientes atendidos");
                 Console.WriteLine("                 " +
                     "NETO: = $" + ingresosTotales);
                 Console.WriteLine("------------------");
